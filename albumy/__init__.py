@@ -29,6 +29,7 @@ def create_app(config_name=None):
         config_name = os.getenv('FLASK_CONFIG', 'production')
 
     app = Flask('albumy')
+    app.debug = False  # 没用呢
     
     app.config.from_object(config[config_name])
 
