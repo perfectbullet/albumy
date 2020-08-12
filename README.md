@@ -4,7 +4,7 @@
 
 > Example application for *[Python Web Development with Flask](http://helloflask.com/en/book)* (《[Flask Web 开发实战](http://helloflask.com/book)》).
 
-Demo: http://albumy.helloflask.com
+Demo: http://47.100.16.146:5001/
 
 ![Screenshot](http://helloflask.com/screenshots/albumy.png)
 
@@ -34,6 +34,17 @@ $ flask forge
 $ flask run
 * Running on http://127.0.0.1:5000/
 ```
+
+使用gunicorn部署
+```
+cd /root/albumy/
+workon flask_env    # 使用虚拟环境
+# 直接用flask自带的服务器启动
+FLASK_APP=albumy:app
+# 使用gunicorn启动，配额文件
+gunicorn --config=gunicorn_config.py albumy:app
+```
+
 Test account:
 * email: `admin@helloflask.com`
 * password: `helloflask`
