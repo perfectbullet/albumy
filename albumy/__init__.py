@@ -24,7 +24,9 @@ from albumy.settings import config
 
 def create_app(config_name=None):
     if config_name is None:
-        config_name = os.getenv('FLASK_CONFIG', 'development')
+        # config_name = os.getenv('FLASK_CONFIG', 'development')
+        # 配置生产环境
+        config_name = os.getenv('FLASK_CONFIG', 'production')
 
     app = Flask('albumy')
     
