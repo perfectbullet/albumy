@@ -159,3 +159,7 @@ def register_commands(app):
         click.echo('Generating %d comments...' % comment)
         fake_comment(comment)
         click.echo('Done.')
+
+
+print('use albumy.__init__ to start the app')
+app = create_app()
