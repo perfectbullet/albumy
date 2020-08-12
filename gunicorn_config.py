@@ -5,7 +5,7 @@ import logging.handlers
 from logging.handlers import WatchedFileHandler
 import multiprocessing
 
-bind = '0.0.0.0:8020'      # 绑定ip和端口号
+bind = '0.0.0.0:5001'      # 绑定ip和端口号
 backlog = 100                # 监听队列
 # chdir = '/workspace/django_inference/AppServer'  # gunicorn要切换到的目的工作目录
 timeout = 6      # Workers silent for more than this many seconds are killed and restarted.
