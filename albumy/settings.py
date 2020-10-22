@@ -1,9 +1,7 @@
 # -*- coding: utf-8 -*-
 """
-    :author: Grey Li (李辉)
-    :url: http://greyli.com
-    :copyright: © 2018 Grey Li <withlihui@gmail.com>
-    :license: MIT, see LICENSE for more details.
+    :author: perfectbullet
+    :url: https://github.com/perfectbullet
 """
 import os
 import sys
@@ -25,7 +23,7 @@ class Operations:
 
 
 class BaseConfig:
-    ALBUMY_ADMIN_EMAIL = os.getenv('ALBUMY_ADMIN', 'admin@helloflask.com')
+    ALBUMY_ADMIN_EMAIL = os.getenv('ALBUMY_ADMIN', '121531845@qq.com')
     ALBUMY_PHOTO_PER_PAGE = 12
     ALBUMY_COMMENT_PER_PAGE = 15
     ALBUMY_NOTIFICATION_PER_PAGE = 20
@@ -70,20 +68,21 @@ class BaseConfig:
 
 
 class DevelopmentConfig(BaseConfig):
-    SQLALCHEMY_DATABASE_URI = prefix + os.path.join(basedir, 'data-dev.db')
-    REDIS_URL = "redis://localhost"
+    # SQLALCHEMY_DATABASE_URI = prefix + os.path.join(basedir, 'data-dev.db')
+    # REDIS_URL = "redis://localhost"
+    SQLALCHEMY_DATABASE_URI = "mysql+pymysql://root:1234asdf@47.100.16.146:33061/albumy_dev"
 
 
 class TestingConfig(BaseConfig):
     TESTING = True
     WTF_CSRF_ENABLED = False
-    SQLALCHEMY_DATABASE_URI = 'sqlite:///'  # in-memory database
+    SQLALCHEMY_DATABASE_URI = "mysql+pymysql://root:1234asdf@47.100.16.146:33061/albumy_dev"
 
 
 class ProductionConfig(BaseConfig):
     # SQLALCHEMY_DATABASE_URI = os.getenv('DATABASE_URL',
     #                                     prefix + os.path.join(basedir, 'data.db'))
-    SQLALCHEMY_DATABASE_URI = prefix + os.path.join(basedir, 'data-dev.db')
+    SQLALCHEMY_DATABASE_URI = "mysql+pymysql://root:1234asdf@47.100.16.146:33061/albumy_dev"
 
 
 config = {

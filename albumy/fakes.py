@@ -20,13 +20,13 @@ fake = Faker()
 
 
 def fake_admin():
-    admin = User(name='zhou jing',
+    admin = User(name='zhoujing',
                  username='perfectbullet',
                  email='121531845@qq.com',
                  bio=fake.sentence(),
                  website='https://github.com/perfectbullet',
                  confirmed=True)
-    admin.set_password('1234asdf.@')
+    admin.set_password('1234asdf')
     notification = Notification(message='Hello, welcome to Albumy.', receiver=admin)
     db.session.add(notification)
     db.session.add(admin)
