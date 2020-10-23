@@ -70,19 +70,19 @@ class BaseConfig:
 class DevelopmentConfig(BaseConfig):
     # SQLALCHEMY_DATABASE_URI = prefix + os.path.join(basedir, 'data-dev.db')
     # REDIS_URL = "redis://localhost"
-    SQLALCHEMY_DATABASE_URI = "mysql+pymysql://root:1234asdf@47.100.16.146:33061/albumy_dev"
+    SQLALCHEMY_DATABASE_URI = os.getenv('SQLALCHEMY_DATABASE_URI', prefix + os.path.join(basedir, 'data-dev.db'))
 
 
 class TestingConfig(BaseConfig):
     TESTING = True
     WTF_CSRF_ENABLED = False
-    SQLALCHEMY_DATABASE_URI = "mysql+pymysql://root:1234asdf@47.100.16.146:33061/albumy_dev"
+    SQLALCHEMY_DATABASE_URI = os.getenv('SQLALCHEMY_DATABASE_URI', prefix + os.path.join(basedir, 'data-dev.db'))
 
 
 class ProductionConfig(BaseConfig):
     # SQLALCHEMY_DATABASE_URI = os.getenv('DATABASE_URL',
     #                                     prefix + os.path.join(basedir, 'data.db'))
-    SQLALCHEMY_DATABASE_URI = "mysql+pymysql://root:1234asdf@47.100.16.146:33061/albumy_dev"
+    SQLALCHEMY_DATABASE_URI = os.getenv('SQLALCHEMY_DATABASE_URI', prefix + os.path.join(basedir, 'data-dev.db'))
 
 
 config = {
