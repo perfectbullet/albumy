@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 """
     :author: perferctbullet
-    :url: http://perferctbullet.com
     :copyright:
     :license: MIT, see LICENSE for more details.
 """
