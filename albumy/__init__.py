@@ -165,3 +165,4 @@ def register_commands(app):
 
 print('use albumy.__init__ to start the app')
 app = create_app()
+print('app SQLALCHEMY_DATABASE_URI is {}'.format(app.config['SQLALCHEMY_DATABASE_URI']))
