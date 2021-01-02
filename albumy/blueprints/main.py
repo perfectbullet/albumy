@@ -121,6 +121,7 @@ def get_avatar(filename):
 def upload():
     if request.method == 'POST' and 'file' in request.files:
         f = request.files.get('file')
+        print(f)
         filename = rename_image(f.filename)
         f.save(os.path.join(current_app.config['ALBUMY_UPLOAD_PATH'], filename))
         filename_s = resize_image(f, filename, current_app.config['ALBUMY_PHOTO_SIZE']['small'])
