@@ -8,7 +8,14 @@ from flask_caching import Cache
 app = Flask(__name__)
 app.config.from_pyfile("hello.cfg")
 cache = Cache(app)
-cache.init_app(app, config={'CACHE_TYPE': 'simple', "CACHE_DEFAULT_TIMEOUT": 900})
+# cache.init_app(app, config={'CACHE_TYPE': 'simple', "CACHE_DEFAULT_TIMEOUT": 900, })
+# 使用redis 可以在gunicorn 多个workers的情况下正确的缓存数据，
+cache.init_app(app, config={'CACHE_TYPE': 'redis', "CACHE_DEFAULT_TIMEOUT": 900,
+                            'CACHE_REDIS_HOST': '47.100.16.146',
+                            'CACHE_REDIS_PORT': '6379',
+                            'CACHE_REDIS_PASSWORD': '1234asdf',
+                            'CACHE_REDIS_DB': '0',
+                            })
 
 #: This is an example of a cached view
 @app.route("/api/now")
